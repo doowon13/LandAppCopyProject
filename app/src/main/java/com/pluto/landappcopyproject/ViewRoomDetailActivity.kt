@@ -5,6 +5,7 @@ import android.os.Bundle
 import com.pluto.landappcopyproject.datas.Room
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.activity_view_room_detail.*
+import java.io.Serializable
 
 class ViewRoomDetailActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -13,10 +14,9 @@ class ViewRoomDetailActivity : AppCompatActivity() {
 
         val roomData = intent.getSerializableExtra("room") as Room
 
-        priceTxt.text = roomData.getFormattedPrice()
+        priceTxt.text = "${roomData.getFormattedPrice()}만원"
         descriptionTxt.text = roomData.description
         addressTxt.text = roomData.address
         floorTxt.text = roomData.getFormattedFloor()
-
     }
 }
